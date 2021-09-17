@@ -2,7 +2,9 @@ import { Plugin } from 'vite'
 import * as fse from 'fs-extra'
 import { posix as path } from 'path'
 import * as glob from 'glob'
-import chalk from 'chalk'
+import { Chalk } from 'chalk'
+import * as originChalk from 'chalk'
+const chalk = originChalk as unknown as Chalk
 
 export interface TargetObject {
   isDir?: boolean

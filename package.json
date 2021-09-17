@@ -1,6 +1,6 @@
 {
   "name": "@col0ring/vite-plugin-copy",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "files": [
     "es",
     "lib",
