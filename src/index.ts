@@ -22,11 +22,7 @@ function isTargetObject(
 function copyFile(src: string, target: string, isDir: boolean) {
   const targetFile = isDir ? path.join(target, path.basename(src)) : target
   try {
-    if (isDir) {
-      fse.copySync(src, targetFile)
-    } else {
-      fse.copySync(src, target)
-    }
+    fse.copySync(src, targetFile)
     console.log(chalk.green(`Copy successfully: ${src} > ${targetFile}`))
   } catch (error) {
     console.log(chalk.red(`Copy failed: ${src} > ${targetFile}`))
@@ -55,6 +51,13 @@ function vitePluginCopy(
           let sourceFiles = cacheMap[s]
           if (!sourceFiles) {
             sourceFiles = glob.sync(s, globOptions)
+            if (sourceFiles.length === 0) {
+              console.log(
+                chalk.red(
+                  `Copy failed: The directory or file ${s} does not exist.`
+                )
+              )
+            }
             cacheMap[s] = sourceFiles
           }
           sourceFiles.forEach((sourceFile) => {
