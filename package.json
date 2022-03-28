@@ -1,6 +1,6 @@
 {
   "name": "@col0ring/vite-plugin-copy",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "files": [
     "es",
     "lib",
@@ -34,6 +34,7 @@
     "serve": "vite preview"
   },
   "dependencies": {
+    "chalk": "^4.1.2",
     "fs-extra": "^10.0.0",
     "glob": "^7.1.7",
     "react": "^17.0.0",
